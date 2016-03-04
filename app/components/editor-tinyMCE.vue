@@ -20,6 +20,8 @@
 
                 mode: "exact",
 
+                forced_root_block : false,
+
                 elements: [this.$els.textArea],
 
                 init_instance_callback: function (editor) {
@@ -32,6 +34,7 @@
                     editor.on('change', function (e) {
                         vm.value = e.level.content;
                     });
+
                 }
 
             });
