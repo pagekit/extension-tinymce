@@ -1,0 +1,7 @@
+{
+  "name": "pagekit tinyMCE",
+  "dependencies": {
+    "tinymce": "~4.3.3"
+  },
+  "private": true
+}
