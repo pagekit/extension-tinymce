@@ -37,8 +37,19 @@ module.exports = {
                 }).$mount()
                     .$appendTo('body')
                     .$on('select', function (link) {
+
+                        var attributes = Object.keys(element.attributes).reduce(function (previous, key) {
+                            var name = element.attributes[key].name;
+
+                            if (name === 'data-mce-href') {
+                                return previous;
+                            }
+
+                            return previous + ' ' + name + '="' + (name === 'href' ? link.link : element.attributes[key].nodeValue) + '"';
+                        }, '');
+
                         editor.selection.setContent(
-                            '<a href="' + link.link + '">' + link.txt + '</a>'
+                            '<a' + attributes + '>' + link.txt + '</a>'
                         );
 
                         editor.fire('change');

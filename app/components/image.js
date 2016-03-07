@@ -50,7 +50,7 @@ module.exports = {
                         }, '');
 
                         editor.selection.setContent(
-                            '<img ' + attributes + '>'
+                            '<img' + attributes + '>'
                         );
 
                         editor.fire('change');
