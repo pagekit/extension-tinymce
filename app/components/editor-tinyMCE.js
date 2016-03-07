@@ -10,11 +10,8 @@ module.exports = {
         this.$parent.editor = this;
         var vm = this;
 
-
         this.$asset({
-
             js: ['packages/pagekit/tinyMCE/app/assets/tinymce/tinymce.jquery.min.js']
-
         }).then(function () {
 
             this.$emit('ready');
@@ -47,6 +44,14 @@ module.exports = {
 
                     editor.on('change', function () {
                         vm.$parent.value = editor.getContent();
+                    });
+
+                    editor.on('undo', function () {
+                        editor.fire('change');
+                    });
+
+                    editor.on('redo', function () {
+                        editor.fire('change');
                     });
 
                 }
