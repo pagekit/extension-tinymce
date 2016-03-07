@@ -1,1 +1,1 @@
-Editor.components['editor-tinymce'] = require('./components/editor-tinyMCE.vue');
+Editor.components['editor-html'] = require('./components/editor-tinyMCE.js');
