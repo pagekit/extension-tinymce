@@ -13,6 +13,7 @@ module.exports = {
                 onclick: function () {
 
                     var element = editor.selection.getNode();
+                    editor.selection.select(element);
 
                     if (element.nodeName === 'IMG') {
                         var image = {src: element.attributes.src.nodeValue, alt: element.attributes.alt.nodeValue, cls: ''
@@ -29,10 +30,49 @@ module.exports = {
                     }).$mount()
                         .$appendTo('body')
                         .$on('select', function (image) {
-
                             editor.selection.setContent(
-                                '<img src="' + vm.$url(image.src) + '" alt="' + image.alt + '">'
+                                '<img src="' + image.src + '" alt="' + image.alt + '">'
                             );
+
+                            editor.fire('change');
+
+                        });
+                }
+            });
+        });
+
+        tinyMCE.PluginManager.add('link', function (editor) {
+
+            editor.addMenuItem('link', {
+                text: 'Insert/edit link',
+                icon: 'link',
+                context: 'insert',
+                onclick: function () {
+
+                    var element = editor.selection.getNode();
+                    editor.selection.select(element);
+
+                    if (element.nodeName === 'A') {
+                        var link = {link: element.attributes.href.nodeValue, txt: element.innerHTML, cls: ''
+                        };
+                    } else {
+                        link = {}
+                    }
+
+                    new vm.$parent.$options.utils['link-picker']({
+                        parent: vm,
+                        data: {
+                            link: link
+                        }
+                    }).$mount()
+                        .$appendTo('body')
+                        .$on('select', function (link) {
+                            editor.selection.setContent(
+                                '<a href="' + link.link + '">' + link.txt + '</a>'
+                            );
+
+                            editor.fire('change');
+
                         });
                 }
             });
@@ -44,7 +84,7 @@ module.exports = {
 
             mode: "exact",
 
-            plugins: ['-image'],
+            plugins: ['image', 'link'],
 
             document_base_url: $pagekit.url + '/',
 
