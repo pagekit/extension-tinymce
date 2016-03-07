@@ -87,10 +87,7 @@ module.exports = {
                 onclick: function () {
 
                     new vm.$parent.$options.utils['video-picker']({
-                        parent: vm,
-                        data: {
-                            video: video
-                        }
+                        parent: vm
                     }).$mount()
                         .$appendTo('body')
                         .$on('select', function (video) {
