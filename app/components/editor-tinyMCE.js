@@ -7,6 +7,7 @@ module.exports = {
     },
 
     created: function () {
+
         this.$parent.editor = this;
         var vm = this;
 
@@ -15,6 +16,7 @@ module.exports = {
         }).then(function () {
 
             this.$emit('ready');
+
             this.$parent.editor = tinyMCE.init({
 
                 height: this.height - 108,
@@ -54,7 +56,18 @@ module.exports = {
                         editor.fire('change');
                     });
 
+                },
+
+                save_onsavecallback: function () {
+
+                    if (vm.$parent.$els.editor.form) {
+                        var event = document.createEvent('HTMLEvents');
+                        event.initEvent('submit', true, false);
+                        vm.$parent.$els.editor.form.dispatchEvent(event);
+                    }
+
                 }
+
             });
 
         });
