@@ -78,13 +78,40 @@ module.exports = {
             });
         });
 
+        tinyMCE.PluginManager.add('video', function (editor) {
+
+            editor.addMenuItem('video', {
+                text: 'Insert/edit video',
+                icon: 'media',
+                context: 'insert',
+                onclick: function () {
+
+                    new vm.$parent.$options.utils['video-picker']({
+                        parent: vm,
+                        data: {
+                            video: video
+                        }
+                    }).$mount()
+                        .$appendTo('body')
+                        .$on('select', function (video) {
+                            editor.selection.setContent(
+                                '(video)' +  JSON.stringify(video.data)
+                            );
+
+                            editor.fire('change');
+
+                        });
+                }
+            });
+        });
+
         this.$parent.editor = tinyMCE.init({
 
             height: this.height,
 
             mode: "exact",
 
-            plugins: ['image', 'link'],
+            plugins: ['image', 'link', 'video'],
 
             document_base_url: $pagekit.url + '/',
 
