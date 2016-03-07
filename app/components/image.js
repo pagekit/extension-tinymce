@@ -49,8 +49,6 @@ module.exports = {
                             return previous + ' ' + name + '="' + (image[name] || element.attributes[key].nodeValue) + '"';
                         }, '');
 
-                        console.log(attributes)
-
                         editor.selection.setContent(
                             '<img ' + attributes + '>'
                         );
