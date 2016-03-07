@@ -38,8 +38,21 @@ module.exports = {
                 }).$mount()
                     .$appendTo('body')
                     .$on('select', function (image) {
+
+                        var attributes = Object.keys(element.attributes).reduce(function (previous, key) {
+                            var name = element.attributes[key].name;
+
+                            if (name === 'data-mce-src') {
+                                return previous;
+                            }
+
+                            return previous + ' ' + name + '="' + (image[name] || element.attributes[key].nodeValue) + '"';
+                        }, '');
+
+                        console.log(attributes)
+
                         editor.selection.setContent(
-                            '<img src="' + image.src + '" alt="' + image.alt + '">'
+                            '<img ' + attributes + '>'
                         );
 
                         editor.fire('change');
@@ -58,6 +71,7 @@ module.exports = {
                 context: 'insert',
                 onclick: showDialog
             });
+
         });
     }
 
