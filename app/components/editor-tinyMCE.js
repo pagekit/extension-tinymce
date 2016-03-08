@@ -40,12 +40,20 @@ module.exports = {
                 init_instance_callback: function (editor) {
                     window.tiny = vm.tiny = editor;
 
-                    vm.$watch('$parent.value', function (value) {
+                    var update = function (value) {
                         this.tiny.setContent(value || '', {format: 'text'});
-                    }, {immediate: true});
+                    };
+
+                    var unbind = vm.$watch('$parent.value', update, {immediate: true});
 
                     editor.on('change', function () {
+
+                        unbind();
+
                         vm.$parent.value = editor.getContent();
+
+                        unbind = vm.$watch('$parent.value', update);
+
                     });
 
                     editor.on('undo', function () {
