@@ -60,7 +60,8 @@ module.exports = {
 
             editor.addButton('image', {
                 tooltip: 'Insert/edit image',
-                onclick: showDialog
+                onclick: showDialog,
+                stateSelector: 'img:not([data-mce-object],[data-mce-placeholder]),figure.image'
             });
 
             editor.addMenuItem('image', {

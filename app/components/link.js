@@ -23,10 +23,9 @@ module.exports = {
                 editor.selection.select(element);
 
                 if (element.nodeName === 'A') {
-                    var link = {link: element.attributes.href.nodeValue, txt: element.innerHTML, cls: ''
-                    };
+                    var link = {link: element.attributes.href.nodeValue, txt: element.innerHTML};
                 } else {
-                    link = {}
+                    link = {};
                 }
 
                 new vm.$parent.$options.utils['link-picker']({
@@ -59,7 +58,8 @@ module.exports = {
 
             editor.addButton('link', {
                 tooltip: 'Insert/edit link',
-                onclick: showDialog
+                onclick: showDialog,
+                stateSelector: 'a[href]'
             });
 
             editor.addMenuItem('link', {
