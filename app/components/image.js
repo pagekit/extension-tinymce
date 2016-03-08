@@ -20,12 +20,10 @@ module.exports = {
             var showDialog = function () {
 
                 var element = editor.selection.getNode();
-                editor.selection.select(element);
 
                 if (element.nodeName === 'IMG') {
-                    var image = {
-                        src: element.attributes.src.nodeValue, alt: element.attributes.alt.nodeValue, cls: ''
-                    };
+                    editor.selection.select(element);
+                    var image = {src: element.attributes.src.nodeValue, alt: element.attributes.alt.nodeValue, cls: ''};
                 } else {
                     image = {}
                 }
@@ -38,6 +36,9 @@ module.exports = {
                 }).$mount()
                     .$appendTo('body')
                     .$on('select', function (image) {
+
+                        element.setAttribute('src', '');
+                        element.setAttribute('alt', '');
 
                         var attributes = Object.keys(element.attributes).reduce(function (previous, key) {
                             var name = element.attributes[key].name;

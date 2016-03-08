@@ -20,10 +20,11 @@ module.exports = {
             var showDialog = function () {
 
                 var element = editor.selection.getNode();
-                editor.selection.select(element);
+
 
                 if (element.nodeName === 'A') {
-                    var link = {link: element.attributes.href.nodeValue, txt: element.innerHTML};
+                    editor.selection.select(element);
+                    var link = {link: element.attributes.href ? element.attributes.href.nodeValue : '', txt: element.innerHTML};
                 } else {
                     link = {};
                 }
@@ -36,6 +37,8 @@ module.exports = {
                 }).$mount()
                     .$appendTo('body')
                     .$on('select', function (link) {
+
+                        element.setAttribute('href', '');
 
                         var attributes = Object.keys(element.attributes).reduce(function (previous, key) {
                             var name = element.attributes[key].name;
@@ -59,7 +62,7 @@ module.exports = {
             editor.addButton('link', {
                 tooltip: 'Insert/edit link',
                 onclick: showDialog,
-                stateSelector: 'a[href]'
+                stateSelector: 'a'
             });
 
             editor.addMenuItem('link', {
