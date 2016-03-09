@@ -24,11 +24,11 @@ module.exports = {
                 mode: "exact",
 
                 plugins: [
-                    vm.plugins,
-                    'advlist autolink lists charmap print preview hr anchor pagebreak',
+                    'advlist autolink lists charmap print preview hr anchor media',
                     'searchreplace wordcount visualblocks visualchars code fullscreen',
                     'insertdatetime nonbreaking save table contextmenu directionality',
-                    'template paste textcolor colorpicker textpattern imagetools'
+                    'paste textcolor colorpicker textpattern imagetools',
+                    vm.plugins
                 ],
 
                 toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | fullscreen | forecolor backcolor',
