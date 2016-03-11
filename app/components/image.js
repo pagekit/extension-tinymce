@@ -23,7 +23,7 @@ module.exports = {
 
                 if (element.nodeName === 'IMG') {
                     editor.selection.select(element);
-                    var image = {src: element.attributes.src.nodeValue, alt: element.attributes.alt.nodeValue, cls: ''};
+                    var image = {src: element.attributes.src.nodeValue, alt: element.attributes.alt.nodeValue};
                 } else {
                     image = {}
                 }
@@ -31,7 +31,7 @@ module.exports = {
                 new vm.$parent.$options.utils['image-picker']({
                     parent: vm,
                     data: {
-                        image: image
+                        image: {data: image}
                     }
                 }).$mount()
                     .$appendTo('body')
@@ -47,7 +47,7 @@ module.exports = {
                                 return previous;
                             }
 
-                            return previous + ' ' + name + '="' + (image[name] || element.attributes[key].nodeValue) + '"';
+                            return previous + ' ' + name + '="' + (image.data[name] || element.attributes[key].nodeValue) + '"';
                         }, '');
 
                         editor.selection.setContent(
