@@ -14,7 +14,7 @@ module.exports = {
 
         var vm = this;
 
-        this.$parent.editor.plugins.push('pagekitLink');
+        this.$parent.editor.plugins.push('-pagekitLink');
         tinyMCE.PluginManager.add('pagekitLink', function (editor) {
 
             var showDialog = function () {

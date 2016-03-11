@@ -14,7 +14,7 @@ module.exports = {
 
         var vm = this;
 
-        this.$parent.editor.plugins.push('pagekitImage');
+        this.$parent.editor.plugins.push('-pagekitImage');
         tinyMCE.PluginManager.add('pagekitImage', function (editor) {
 
             var showDialog = function () {

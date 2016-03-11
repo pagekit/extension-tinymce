@@ -15,7 +15,7 @@ module.exports = {
 
         var vm = this;
 
-        this.$parent.editor.plugins.push('pagekitVideo');
+        this.$parent.editor.plugins.push('-pagekitVideo');
         tinyMCE.PluginManager.add('pagekitVideo', function (editor) {
 
             var showDialog = function () {
