@@ -1,5 +1,5 @@
 {
-  "name": "pagekit/tinyMCE",
+  "name": "pagekit/tinymce",
   "type": "pagekit-extension",
   "version": "0.0.1",
   "title": "TinyMCE",

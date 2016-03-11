@@ -1,11 +1,10 @@
 <?php
 
-
 use Symfony\Component\HttpFoundation\Response;
 
 return [
 
-    'name' => 'tinyMCE',
+    'name' => 'tinymce',
 
     'main' => function ($app) {
 
@@ -15,16 +14,16 @@ return [
     'events' => [
 
         'view.scripts' => function ($event, $scripts) {
-            $scripts->register('tinyMCE-script', 'tinyMCE:app/bundle/tinyMCE.js', ['~editor']);
+            $scripts->register('tinymce-script', 'tinymce:app/bundle/tinymce.js', ['~editor']);
         },
 
     ],
 
     'routes' => [
 
-        'tinyMCE/{locale}.js' => [
+        'tinymce/{locale}.js' => [
 
-            'name' => '@tinyMCE/intl.js',
+            'name' => '@tinymce/intl.js',
             'controller' => function ($locale) use ($app) {
 
                 $langFile = '';

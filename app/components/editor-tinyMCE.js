@@ -7,15 +7,18 @@ module.exports = {
     },
 
     created: function () {
+        var baseURL = $pagekit.url + '/packages/pagekit/tinymce/app/assets/tinymce',
+            vm = this;
 
         this.$parent.editor = this;
-        var vm = this;
 
         this.$asset({
-            js: ['packages/pagekit/tinyMCE/app/assets/tinymce/tinymce.jquery.min.js']
+            js: [baseURL + '/tinymce.jquery.min.js']
         }).then(function () {
 
             this.$emit('ready');
+
+            tinyMCE.baseURL = baseURL;
 
             this.$parent.editor = tinyMCE.init({
 
@@ -23,7 +26,7 @@ module.exports = {
 
                 mode: "exact",
 
-                language_url: $pagekit.url + '/tinyMCE/' + document.documentElement.lang + '.js',
+                language_url: $pagekit.url + '/tinymce/' + document.documentElement.lang + '.js',
 
                 plugins: [
                     'advlist autolink lists charmap print preview hr anchor media',

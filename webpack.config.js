@@ -1,7 +1,7 @@
 module.exports = [
     {
         entry: {
-            "app/bundle/tinyMCE": "./app/tinyMCE"
+            "app/bundle/tinymce": "./app/tinymce"
         },
         output: {
             filename: "./[name].js"
