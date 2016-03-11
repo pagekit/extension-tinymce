@@ -1,5 +1,8 @@
 <?php
 
+
+use Symfony\Component\HttpFoundation\Response;
+
 return [
 
     'name' => 'tinyMCE',
@@ -17,13 +20,32 @@ return [
 
     ],
 
-    'resources' => [
+    'routes' => [
 
-        'tinyMCE:' => ''
+        'tinyMCE/lang.js' => [
+            'name' => '@tinyMCE/lang.js',
+            'controller' => function () use ($app) {
 
-    ],
+                $locales = '';
+                foreach (glob(__DIR__ . '/languages/*.js') as $file) {
+                    $lang = rtrim(basename($file), '.js');
 
-    'config' => [
+                    if ($lang === $app->module('system/intl')->getLocale()) {
+                        $locales = $file;
+                        break;
+                    }
+
+                    if (strpos($app->module('system/intl')->getLocale(), $lang) === 0) {
+                        $locales = $file;
+                    }
+
+                }
+
+                return new Response($locales ? file_get_contents($locales) : '', 200, ['Content-Type' => 'application/javascript']);
+
+            }
+
+        ]
 
     ]
 
