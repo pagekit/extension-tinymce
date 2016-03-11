@@ -1,22 +1,31 @@
 {
-    "name": "pagekit/tinyMCE",
-    "type": "pagekit-extension",
-    "version": "0.0.1",
-    "title": "TinyMCE",
-    "description": "An analytics extension for your dashboard.",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Pagekit",
-            "email": "info@pagekit.com",
-            "homepage": "http://pagekit.com"
-        }
-    ],
-    "extra": {
-        "icon": "icon.svg",
-        "scripts": "scripts.php"
-    },
-    "archive": {
-        "exclude": ["node_modules", "!/app"]
+  "name": "pagekit/tinyMCE",
+  "type": "pagekit-extension",
+  "version": "0.0.1",
+  "title": "TinyMCE",
+  "description": "An analytics extension for your dashboard.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pagekit",
+      "email": "info@pagekit.com",
+      "homepage": "http://pagekit.com"
     }
+  ],
+  "extra": {
+    "icon": "icon.svg",
+    "scripts": "scripts.php"
+  },
+  "archive": {
+    "exclude": [
+      "node_modules",
+      "!/app",
+      "/app/assets/tinymce/tinymce.js",
+      "/app/assets/tinymce/tinymce.min.js",
+      "/app/assets/tinymce/tinymce.jquery.js",
+      "/app/assets/tinymce/jquery.tinymce.min",
+      "/app/assets/tinymce/plugins/**/*.js",
+      "!/app/assets/tinymce/plugins/**/*.min.js"
+    ]
+  }
 }
