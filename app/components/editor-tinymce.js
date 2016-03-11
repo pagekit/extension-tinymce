@@ -43,7 +43,7 @@ module.exports = {
                 elements: [this.$parent.$els.editor],
 
                 init_instance_callback: function (editor) {
-                    window.tiny = vm.tiny = editor;
+                    vm.tiny = editor;
 
                     var update = function (value) {
                         this.tiny.setContent(value || '', {format: 'text'});
