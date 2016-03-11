@@ -19,6 +19,7 @@ module.exports = {
             this.$emit('ready');
 
             tinyMCE.baseURL = baseURL;
+            tinyMCE.suffix = '.min';
 
             this.$parent.editor = tinyMCE.init({
 
