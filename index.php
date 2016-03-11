@@ -22,26 +22,27 @@ return [
 
     'routes' => [
 
-        'tinyMCE/lang.js' => [
-            'name' => '@tinyMCE/lang.js',
-            'controller' => function () use ($app) {
+        'tinyMCE/{locale}.js' => [
 
-                $locales = '';
+            'name' => '@tinyMCE/intl.js',
+            'controller' => function ($locale) use ($app) {
+
+                $langFile = '';
                 foreach (glob(__DIR__ . '/languages/*.js') as $file) {
-                    $lang = rtrim(basename($file), '.js');
+                    $candidate = substr(basename($file), 0, -3);
 
-                    if ($lang === $app->module('system/intl')->getLocale()) {
-                        $locales = $file;
+                    if ($candidate === $locale) {
+                        $langFile = $file;
                         break;
                     }
 
-                    if (strpos($app->module('system/intl')->getLocale(), $lang) === 0) {
-                        $locales = $file;
+                    if (strpos($locale, $candidate) === 0 || strpos($candidate, $locale) === 0) {
+                        $langFile = $file;
                     }
 
                 }
 
-                return new Response($locales ? file_get_contents($locales) : '', 200, ['Content-Type' => 'application/javascript']);
+                return new Response($langFile ? file_get_contents($langFile) : '', 200, ['Content-Type' => 'application/javascript']);
 
             }
 

@@ -23,7 +23,7 @@ module.exports = {
 
                 mode: "exact",
 
-                language_url: $pagekit.url + '/tinyMCE/lang.js',
+                language_url: $pagekit.url + '/tinyMCE/' + document.documentElement.lang + '.js',
 
                 plugins: [
                     'advlist autolink lists charmap print preview hr anchor media',
