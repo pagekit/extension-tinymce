@@ -23,7 +23,7 @@ return [
 
         'tinymce/{locale}.js' => [
 
-            'name' => '@tinymce/intl.js',
+            'name' => '@tinymce/intl',
             'controller' => function ($locale) use ($app) {
 
                 $langFile = '';
