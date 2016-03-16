@@ -130,7 +130,7 @@ module.exports = {
                 stateSelector: ['img[data-mce-object]', 'span[data-mce-object]']
             });
 
-            editor.addMenuItem('video', {
+            editor.addMenuItem('media', {
                 text: 'Insert/edit video',
                 icon: 'media',
                 context: 'insert',
