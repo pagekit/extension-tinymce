@@ -9,7 +9,7 @@ module.exports = {
 
     created: function () {
 
-        if (!tinyMCE) {
+        if (typeof tinyMCE !== 'undefined') {
             return;
         }
 
@@ -110,7 +110,9 @@ module.exports = {
 
                             Object.keys(video.data).forEach(function (attr) {
                                 var value = video.data[attr];
-                                content += ' ' + attr + (_.isBoolean(value) ? '' : '="' + value + '"');
+                                if (value) {
+                                    content += ' ' + attr + (_.isBoolean(value) ? '' : '="' + value + '"');
+                                }
                             });
 
                             content += '></video>';
