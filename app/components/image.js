@@ -8,7 +8,7 @@ module.exports = {
 
     created: function () {
 
-        if (typeof tinyMCE !== 'undefined') {
+        if (typeof tinyMCE === 'undefined') {
             return;
         }
 
