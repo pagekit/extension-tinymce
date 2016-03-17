@@ -29,7 +29,7 @@ module.exports = {
                         var name = element.attributes[key].name;
 
                         if (name === 'width' || name === 'height' || ((name = name.match(/data-mce-p-(.*)/)) && (name = name[1]))) {
-                            video[name] = element.attributes[key].nodeValue;
+                            video[name] = element.attributes[key].nodeValue === '' || element.attributes[key].nodeValue;
                         }
 
                     });
@@ -89,7 +89,7 @@ module.exports = {
                                     return;
                                 }
 
-                                src += attr + '=' + video.data[attr] + '&';
+                                src += attr + '=' + _.isBoolean(video.data[attr]) ? Number(video.data[attr]) : video.data[attr] + '&';
                             });
 
                             attributes.src = src.slice(0, -1);
