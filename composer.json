@@ -1,9 +1,9 @@
 {
   "name": "pagekit/tinymce",
   "type": "pagekit-extension",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "title": "TinyMCE",
-  "description": "An analytics extension for your dashboard.",
+  "description": "Use the TinyMCE as default editor.",
   "license": "MIT",
   "authors": [
     {
