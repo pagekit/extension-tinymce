@@ -38,12 +38,16 @@
 		background-color: #eee;
 		border: none;
 		border-radius: 0;
+		color: rgba(102, 102, 102, 0.8);
 	}
 
-	.@{prefix}-btn button {
+	.@{prefix}-btn > button {
 		padding-top: 14px;
 		padding-bottom: 14px;
+		color: rgba(102, 102, 102, 0.8);
 	}
+
+	.@{prefix}-btn > button > .@{prefix}-txt { color: rgba(102, 102, 102, 0.8); }
 
 	.@{prefix}-btn:hover,
 	.@{prefix}-btn:focus,
@@ -53,6 +57,7 @@
 
 		background-color: rgba(255,255,255,0.5);
 
+		> button > .@{prefix}-txt,
 		> button > .@{prefix}-ico { color: #333; }
 
 	}
