@@ -90,12 +90,12 @@ module.exports = {
                                     return;
                                 }
 
-                                src += attr + '=' + _.isBoolean(video.data[attr]) ? Number(video.data[attr]) : video.data[attr] + '&';
+                                src += attr + '=' + (_.isBoolean(video.data[attr]) ? Number(video.data[attr]) : video.data[attr]) + '&';
                             });
 
                             attributes.src = src.slice(0, -1);
-                            attributes.width = video.data.width;
-                            attributes.height = video.data.height;
+                            attributes.width = video.data.width || 690;
+                            attributes.height = video.data.height || 390;
                             attributes.allowfullscreen = true;
 
                             content = '<iframe';
