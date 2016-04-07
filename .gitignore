@@ -1,5 +1,5 @@
 app/bundle/**/*.js
-app/assets/**
+app/assets/tinymce/**
 node_modules
 .DS_Store
 .idea

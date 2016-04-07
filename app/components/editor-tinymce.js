@@ -27,6 +27,8 @@ module.exports = {
 
                 mode: "exact",
 
+                skin_url: $pagekit.url + '/packages/pagekit/tinymce/app/assets/skin',
+
                 language_url: $pagekit.url + '/tinymce/' + document.documentElement.lang + '.js',
 
                 plugins: [
