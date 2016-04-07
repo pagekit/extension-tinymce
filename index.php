@@ -11,6 +11,8 @@ return [
         'view.scripts' => function ($event, $scripts) use ($app) {
             $scripts->register('tinymce-script', 'tinymce:app/bundle/tinymce.js', ['~editor']);
             $scripts->register('tinymce-data', sprintf('var $tinymce = %s;', json_encode([
+                    'skin_url' => $app['url']->getStatic(__DIR__ . '/app/assets/skin'),
+                    'language_url' => $app['url']('@tinymce/intl', ['locale' => $app->module('system/intl')->getLocale()]),
                     'content_css' => $app['url']->getStatic($app['theme']->path . '/css/theme.css')
                 ])
             ), ['~tinymce-script'], 'string');

@@ -21,17 +21,11 @@ module.exports = {
             tinyMCE.baseURL = baseURL;
             tinyMCE.suffix = '.min';
 
-            this.$parent.editor = tinyMCE.init({
+            this.$parent.editor = tinyMCE.init(_.merge({
 
-                height: this.height - 108,
+                height: this.$parent.height - 108,
 
                 mode: "exact",
-
-                skin_url: $pagekit.url + '/packages/pagekit/tinymce/app/assets/skin',
-
-                language_url: $pagekit.url + '/tinymce/' + document.documentElement.lang + '.js',
-
-                content_css: $tinymce.content_css,
 
                 plugins: [
                     vm.plugins,
@@ -90,7 +84,7 @@ module.exports = {
 
                 }
 
-            });
+            }, $tinymce));
 
         });
 
