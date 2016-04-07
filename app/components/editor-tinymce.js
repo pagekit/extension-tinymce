@@ -30,14 +30,14 @@ module.exports = {
                 language_url: $pagekit.url + '/tinymce/' + document.documentElement.lang + '.js',
 
                 plugins: [
+                    vm.plugins,
                     'advlist autolink lists charmap print preview hr anchor media',
                     'searchreplace wordcount visualblocks visualchars code fullscreen',
                     'insertdatetime nonbreaking save table contextmenu directionality',
-                    'paste textcolor colorpicker textpattern imagetools',
-                    vm.plugins
+                    'paste textcolor colorpicker textpattern imagetools'
                 ],
 
-                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | fullscreen | forecolor backcolor',
+                toolbar: 'undo redo | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | code | fullscreen',
 
                 document_base_url: $pagekit.url + '/',
 
