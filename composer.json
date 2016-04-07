@@ -3,7 +3,7 @@
   "type": "pagekit-extension",
   "version": "1.0.0",
   "title": "TinyMCE",
-  "description": "Use the TinyMCE as default editor.",
+  "description": "Replace Pagekit's default editor with TinyMCE.",
   "license": "MIT",
   "authors": [
     {
