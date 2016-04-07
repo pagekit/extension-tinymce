@@ -20,6 +20,8 @@
     "exclude": [
       "node_modules",
       "!/app",
+      "*.less",
+      "/app/assets/tinymce/skins",
       "/app/assets/tinymce/tinymce.js",
       "/app/assets/tinymce/tinymce.min.js",
       "/app/assets/tinymce/tinymce.jquery.js",
