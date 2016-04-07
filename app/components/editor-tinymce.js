@@ -31,6 +31,8 @@ module.exports = {
 
                 language_url: $pagekit.url + '/tinymce/' + document.documentElement.lang + '.js',
 
+                content_css: $tinymce.content_css,
+
                 plugins: [
                     vm.plugins,
                     'advlist autolink lists charmap print preview hr anchor media',
@@ -44,6 +46,10 @@ module.exports = {
                 document_base_url: $pagekit.url + '/',
 
                 elements: [this.$parent.$els.editor],
+
+                element_format: 'html',
+
+                entity_encoding: "raw",
 
                 init_instance_callback: function (editor) {
                     vm.tiny = editor;
