@@ -1,6 +1,6 @@
 # Changelog
 
-## WIP
+## 1.0.1 (April 18, 2016)
 
 ### Fixed
 - Fixed compatibility with mod_rewrite disabled
