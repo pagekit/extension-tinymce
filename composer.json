@@ -1,7 +1,7 @@
 {
   "name": "pagekit/tinymce",
   "type": "pagekit-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "TinyMCE",
   "description": "Replace Pagekit's default editor with TinyMCE.",
   "license": "MIT",
