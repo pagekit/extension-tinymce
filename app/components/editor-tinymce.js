@@ -7,7 +7,7 @@ module.exports = {
     },
 
     created: function () {
-        var baseURL = $pagekit.url + '/packages/pagekit/tinymce/app/assets/tinymce',
+        var baseURL = $tinymce.root_url + '/app/assets/tinymce',
             vm = this;
 
         this.$parent.editor = this;
@@ -37,7 +37,7 @@ module.exports = {
 
                 toolbar: 'undo redo | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | code | fullscreen',
 
-                document_base_url: $pagekit.url + '/',
+                document_base_url: Vue.url.options.root + '/',
 
                 elements: [this.$parent.$els.editor],
 
