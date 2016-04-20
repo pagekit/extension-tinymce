@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 (April 20, 2016)
+### Fixed
+- Fixed build
+
 ## 1.0.1 (April 18, 2016)
 
 ### Fixed
