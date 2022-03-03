@@ -23,7 +23,7 @@ return [
 
     'routes' => [
 
-        'tinymce/{locale}.js' => [
+        'packages/pagekit/tinymce/languages/{locale}.js' => [
 
             'name' => '@tinymce/intl',
             'controller' => function ($locale) use ($app) {
